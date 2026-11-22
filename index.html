@@ -1,0 +1,2203 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ESA UNGGUL DIGITAL LEARNING SHOWCASE | Multimedia Interaktif</title>
+  <meta name="description" content="Multimedia Interaktif Digital Learning Showcase Universitas Esa Unggul — Perkenalan, Video Presentasi, dan Penutup." />
+
+  <!-- Google Fonts: Plus Jakarta Sans (Headings) & Inter (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ueuNavy: '#082B55',
+            ueuBlue: '#0874D1',
+            ueuOverlay: '#07549A',
+            ueuOrange: '#F28B19',
+            ueuOrangeHover: '#D9770C',
+            ueuLight: '#F4F7FB',
+          },
+          fontFamily: {
+            heading: ['"Plus Jakarta Sans"', 'sans-serif'],
+            sans: ['Inter', 'sans-serif'],
+          },
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* ==========================================================================
+       SISTEM DESAIN MULTIMEDIA INTERAKTIF — UNIVERSITAS ESA UNGGUL
+       ========================================================================== */
+    :root {
+      --color-navy: #082B55;
+      --color-primary: #0874D1;
+      --color-overlay: #07549A;
+      --color-orange: #F28B19;
+      --color-orange-hover: #D9770C;
+      --color-white: #FFFFFF;
+      --color-light: #F4F7FB;
+      --color-border: #DCE4EE;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #1E293B;
+      background-color: var(--color-navy);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, .font-heading {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      letter-spacing: -0.02em;
+    }
+
+    /* Architectural Blueprint Grid Overlay */
+    .institutional-grid-bg {
+      background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    /* Slide Stage Transitions */
+    .slide-panel {
+      display: none;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .slide-panel.is-active {
+      display: flex;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Progress Bar Smooth Width */
+    #top-progress-bar {
+      transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* Responsive 16:9 YouTube Container */
+    .video-frame-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      background-color: #051A36;
+      overflow: hidden;
+    }
+    .video-frame-wrapper iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* Custom Scrollbar for Transcript List */
+    .transcript-scroll::-webkit-scrollbar {
+      width: 6px;
+    }
+    .transcript-scroll::-webkit-scrollbar-track {
+      background: #F1F5F9;
+      border-radius: 9999px;
+    }
+    .transcript-scroll::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 9999px;
+    }
+    .transcript-scroll::-webkit-scrollbar-thumb:hover {
+      background: #94A3B8;
+    }
+    .video-frame-wrapper iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* Accessible Focus Outline */
+    button:focus-visible,
+    a:focus-visible {
+      outline: 3px solid var(--color-orange);
+      outline-offset: 2px;
+    }
+
+    /* Respect Reduced Motion Preferences */
+    @media (prefers-reduced-motion: reduce) {
+      .slide-panel,
+      #top-progress-bar {
+        transition: none !important;
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen selection:bg-ueuOrange selection:text-white">
+
+  <!-- ========================================================================
+       HEADER MULTIMEDIA INTERAKTIF (PUTIH & BERSIH)
+       ======================================================================== -->
+  <header class="sticky top-0 z-40 bg-white border-b border-slate-200 shadow-xs">
+    <!-- Top Progress Bar -->
+    <div class="w-full h-1 bg-slate-100">
+      <div id="top-progress-bar" class="h-full bg-ueuOrange" style="width: 33.33%;"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-[72px] flex items-center justify-between gap-3">
+      <!-- Kiri: Identitas Universitas Esa Unggul -->
+      <div class="flex items-center gap-3 min-w-0">
+        <div id="header-logo-slot" class="flex-shrink-0">
+          <!-- Diisi oleh JS dari MULTIMEDIA_CONFIG.officialLogoPath atau badge UEU -->
+        </div>
+        <div class="border-l border-slate-200 pl-3 truncate">
+          <span class="block font-heading font-extrabold text-ueuNavy text-sm sm:text-base leading-tight truncate">
+            Universitas Esa Unggul
+          </span>
+          <span class="block text-[11px] sm:text-xs font-medium text-slate-500 truncate">
+            Digital Campus &mdash; Pembelajaran Digital
+          </span>
+        </div>
+      </div>
+
+      <!-- Tengah: Navigasi Step/Slide Multimedia -->
+      <nav aria-label="Navigasi Slide Multimedia" class="hidden md:flex items-center gap-1.5 bg-ueuLight p-1 rounded-lg border border-slate-200">
+        <button
+          type="button"
+          data-go-slide="0"
+          data-i18n="nav_slide_0"
+          class="slide-nav-pill px-3 py-1.5 rounded-md text-xs font-heading font-bold transition-colors"
+        >
+          01. Perkenalan
+        </button>
+        <button
+          type="button"
+          data-go-slide="1"
+          data-i18n="nav_slide_1"
+          class="slide-nav-pill px-3 py-1.5 rounded-md text-xs font-heading font-bold transition-colors"
+        >
+          02. Video Presentasi
+        </button>
+        <button
+          type="button"
+          data-go-slide="2"
+          data-i18n="nav_slide_2"
+          class="slide-nav-pill px-3 py-1.5 rounded-md text-xs font-heading font-bold transition-colors"
+        >
+          03. Penjabaran Materi
+        </button>
+        <button
+          type="button"
+          data-go-slide="3"
+          data-i18n="nav_slide_3"
+          class="slide-nav-pill px-3 py-1.5 rounded-md text-xs font-heading font-bold transition-colors"
+        >
+          04. Terima Kasih
+        </button>
+      </nav>
+
+      <!-- Kanan: Pengalih Bahasa (ID / EN), Indikator Halaman & Tombol Fullscreen -->
+      <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+        <!-- Language Toggle (ID / EN) -->
+        <div role="group" aria-label="Pilihan Bahasa / Language Switcher" class="inline-flex items-center bg-ueuLight p-0.5 rounded-md border border-slate-200">
+          <button
+            type="button"
+            data-set-lang="id"
+            aria-pressed="true"
+            class="lang-toggle-btn px-2 py-1 rounded text-[11px] font-heading font-extrabold bg-ueuNavy text-white transition-colors"
+            title="Bahasa Indonesia"
+          >
+            ID
+          </button>
+          <button
+            type="button"
+            data-set-lang="en"
+            aria-pressed="false"
+            class="lang-toggle-btn px-2 py-1 rounded text-[11px] font-heading font-extrabold text-slate-600 hover:text-ueuNavy transition-colors"
+            title="English"
+          >
+            EN
+          </button>
+        </div>
+
+        <span
+          id="slide-counter-badge"
+          class="px-2.5 py-1 rounded-md bg-ueuLight border border-slate-200 font-heading font-bold text-xs text-ueuNavy"
+          aria-live="polite"
+        >
+          01 / 04
+        </span>
+
+        <button
+          id="btn-fullscreen"
+          type="button"
+          class="p-2 rounded-md border border-slate-200 text-ueuNavy hover:bg-ueuLight transition-colors"
+          title="Tampilan Layar Penuh (Fullscreen)"
+          aria-label="Aktifkan atau keluar dari mode layar penuh"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Navigasi Pill Khusus Mobile -->
+    <div class="md:hidden border-t border-slate-100 bg-ueuLight/70 px-2 py-1.5 flex items-center justify-center gap-1">
+      <button type="button" data-go-slide="0" data-i18n="nav_slide_0_short" class="slide-nav-pill flex-1 py-1.5 rounded text-[11px] font-heading font-bold">
+        01. Awal
+      </button>
+      <button type="button" data-go-slide="1" data-i18n="nav_slide_1_short" class="slide-nav-pill flex-1 py-1.5 rounded text-[11px] font-heading font-bold">
+        02. Video
+      </button>
+      <button type="button" data-go-slide="2" data-i18n="nav_slide_2_short" class="slide-nav-pill flex-1 py-1.5 rounded text-[11px] font-heading font-bold">
+        03. Materi
+      </button>
+      <button type="button" data-go-slide="3" data-i18n="nav_slide_3_short" class="slide-nav-pill flex-1 py-1.5 rounded text-[11px] font-heading font-bold">
+        04. Penutup
+      </button>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       AREA UTAMA MULTIMEDIA INTERAKTIF (4 TAHAP / SLIDE)
+       ======================================================================== -->
+  <main id="multimedia-stage" class="flex-1 flex flex-col">
+
+    <!-- ======================================================================
+         SLIDE 01: PERKENALAN AWAL
+         ====================================================================== -->
+    <section
+      id="slide-0"
+      class="slide-panel is-active flex-1 flex-col justify-center relative bg-ueuNavy text-white overflow-hidden"
+      aria-label="Tahap 1: Perkenalan Awal"
+    >
+      <!-- Latar Belakang Gradasi Biru Institusional & Pola Grid -->
+      <div class="absolute inset-0 bg-gradient-to-br from-ueuNavy via-ueuOverlay to-ueuNavy opacity-95" aria-hidden="true"></div>
+      <div class="absolute inset-0 institutional-grid-bg pointer-events-none" aria-hidden="true"></div>
+
+      <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <!-- Kolom Kiri: Judul & Pengantar -->
+          <div class="lg:col-span-7">
+            <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-semibold tracking-wide text-white mb-5">
+              <span class="w-2 h-2 rounded-full bg-ueuOrange"></span>
+              <span>ESA UNGGUL DIGITAL LEARNING SHOWCASE</span>
+            </div>
+
+            <h1 data-i18n="hero_title" class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl leading-[1.14] text-white mb-4">
+              Dari Bahan Kajian Menuju Pembelajaran Digital
+            </h1>
+
+            <p data-i18n="hero_subtitle" class="font-heading font-semibold text-base sm:text-xl text-amber-300 leading-snug mb-5">
+              Mengubah Keahlian Akademik Dosen Menjadi Pengalaman Pembelajaran Digital yang Terstruktur.
+            </p>
+
+            <p data-i18n="hero_desc" class="text-sm sm:text-base text-slate-100/90 leading-relaxed mb-8 max-w-2xl">
+              Situs web ini menyajikan praktik pengembangan pembelajaran digital di <strong>Universitas Esa Unggul</strong>, khususnya dalam merancang dan mengemas materi perkuliahan bagi mahasiswa.
+            </p>
+
+            <!-- Tombol Aksi Utama ke Slide 2 -->
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
+              <button
+                type="button"
+                data-go-slide="1"
+                class="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-lg bg-ueuOrange hover:bg-ueuOrangeHover text-white font-heading font-bold text-sm sm:text-base shadow-lg transition-colors"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+                <span data-i18n="hero_cta">Mulai &amp; Tonton Video Presentasi</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Kolom Kanan: Eksplorasi Sorotan Interaktif Sebelum Memutar Video -->
+          <div class="lg:col-span-5">
+            <div class="bg-ueuNavy/85 border border-white/20 rounded-2xl p-6 sm:p-7 shadow-2xl">
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span data-i18n="highlight_label" class="text-xs font-bold uppercase tracking-widest text-ueuOrange">
+                  Sorotan Materi
+                </span>
+                <span data-i18n="highlight_hint" class="text-[11px] text-slate-300">Klik topik untuk melihat ringkasan</span>
+              </div>
+
+              <!-- 3 Tab Interaktif -->
+              <div role="tablist" aria-label="Sorotan Praktik Digital Learning" class="grid grid-cols-3 gap-1.5 bg-white/10 p-1 rounded-lg mb-5">
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected="true"
+                  data-highlight-idx="0"
+                  data-i18n="highlight_tab_0"
+                  class="highlight-tab py-2 px-2 rounded-md text-xs font-heading font-bold text-center transition-colors bg-ueuOrange text-white"
+                >
+                  Desain Instruksional
+                </button>
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  data-highlight-idx="1"
+                  data-i18n="highlight_tab_1"
+                  class="highlight-tab py-2 px-2 rounded-md text-xs font-heading font-bold text-center transition-colors text-slate-200 hover:bg-white/10"
+                >
+                  Media Digital
+                </button>
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  data-highlight-idx="2"
+                  data-i18n="highlight_tab_2"
+                  class="highlight-tab py-2 px-2 rounded-md text-xs font-heading font-bold text-center transition-colors text-slate-200 hover:bg-white/10"
+                >
+                  Integrasi LMS
+                </button>
+              </div>
+
+              <!-- Panel Konten Dinamis Tab -->
+              <div
+                id="highlight-content-box"
+                class="bg-white rounded-xl p-5 sm:p-6 min-h-[176px] flex flex-col justify-between transition-all"
+                style="box-shadow: 0 10px 25px rgba(8, 43, 85, 0.08); border: 1px solid rgba(8, 116, 209, 0.15);"
+              >
+                <!-- Diisi secara dinamis oleh JS -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SLIDE 02: VIDEO PRESENTASI UTAMA
+         ====================================================================== -->
+    <section
+      id="slide-1"
+      class="slide-panel flex-1 flex-col justify-start bg-ueuLight text-slate-800"
+      aria-label="Tahap 2: Video Presentasi Utama"
+    >
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 pb-14 w-full">
+        <!-- Header Bagian Video -->
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-5">
+          <div>
+            <div class="inline-flex items-center gap-2 text-xs font-heading font-bold uppercase tracking-wider text-ueuBlue mb-1.5">
+              <span class="w-5 h-0.5 bg-ueuOrange inline-block"></span>
+              <span data-i18n="video_eyebrow">Presentasi Pembelajaran Digital</span>
+            </div>
+            <h2 data-i18n="video_title" class="font-heading font-extrabold text-2xl sm:text-3xl text-ueuNavy leading-tight">
+              Video Presentasi Pembelajaran Digital
+            </h2>
+          </div>
+
+          <a
+            id="youtube-direct-link"
+            href="https://youtu.be/uiB4CYEGHwE"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 text-xs font-semibold text-ueuBlue hover:text-ueuNavy bg-white border border-slate-200 px-3.5 py-2 rounded-lg shadow-2xs self-start sm:self-auto transition-colors"
+          >
+            <span data-i18n="video_open_yt">Buka di YouTube</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+        </div>
+
+        <p data-i18n="video_desc" class="text-sm sm:text-base text-slate-600 mb-6 max-w-3xl leading-relaxed">
+          Simak pemaparan lengkap mengenai proses perancangan, pengembangan, dan penerapan materi pembelajaran digital di Universitas Esa Unggul.
+        </p>
+
+        <!-- Wadah Utama Video + Bab Video + Transkrip & Penjelasan -->
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-md overflow-hidden">
+          <!-- Area Pemutar Video 16:9 -->
+          <div class="bg-[#051A36] relative">
+            <div id="youtube-player-container" class="video-frame-wrapper">
+              <iframe
+                id="yt-iframe"
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/uiB4CYEGHwE?si=RJ6rp_QjokEn0APL&enablejsapi=1"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+
+            <!-- Bar Bab Video (Chapters) -->
+            <div class="bg-[#081933] border-t border-white/10 px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-3">
+              <div class="flex flex-wrap items-center gap-2">
+                <span data-i18n="video_chapters_label" class="text-[11px] font-heading font-bold uppercase tracking-wider text-slate-400 mr-1">
+                  Bab Video:
+                </span>
+                <button type="button" data-seek-seconds="0" class="video-chapter-btn px-2.5 py-1 rounded-md text-xs font-medium bg-ueuBlue text-white transition-colors">
+                  00:00 Opening
+                </button>
+                <button type="button" data-seek-seconds="123" class="video-chapter-btn px-2.5 py-1 rounded-md text-xs font-medium bg-white/10 text-slate-200 hover:bg-white/20 transition-colors">
+                  02:03 6-Stage Flow
+                </button>
+                <button type="button" data-seek-seconds="277" class="video-chapter-btn px-2.5 py-1 rounded-md text-xs font-medium bg-white/10 text-slate-200 hover:bg-white/20 transition-colors">
+                  04:37 Approaches &amp; Tools
+                </button>
+                <button type="button" data-seek-seconds="671" class="video-chapter-btn px-2.5 py-1 rounded-md text-xs font-medium bg-white/10 text-slate-200 hover:bg-white/20 transition-colors">
+                  11:11 Course &amp; AI Demo
+                </button>
+                <button type="button" data-seek-seconds="1679" class="video-chapter-btn px-2.5 py-1 rounded-md text-xs font-medium bg-white/10 text-slate-200 hover:bg-white/20 transition-colors">
+                  27:59 Closing
+                </button>
+              </div>
+
+              <a
+                href="https://youtu.be/uiB4CYEGHwE"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 text-xs font-medium text-amber-300 hover:text-white transition-colors"
+              >
+                <span class="w-2 h-2 rounded-full bg-red-500"></span>
+                <span data-i18n="video_watch_yt">Tonton Langsung di YouTube</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Bagian Bawah Video: Tab Transkrip Interaktif & Penjelasan & Poin Penting -->
+          <div class="p-5 sm:p-7">
+            <!-- Header Tab & Pencarian -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-5 border-b border-slate-200">
+              <!-- Tab Switcher -->
+              <div role="tablist" aria-label="Pendamping Video Presentasi" class="inline-flex flex-wrap items-center gap-1 bg-slate-100 p-1 rounded-xl border border-slate-200/80">
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected="true"
+                  data-companion-tab="transcript"
+                  class="companion-tab-btn inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs sm:text-sm font-heading font-bold bg-white text-ueuNavy shadow-xs transition-all"
+                >
+                  <svg class="w-4 h-4 text-ueuBlue" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h10" />
+                  </svg>
+                  <span data-i18n="tab_transcript">Transkrip Interaktif</span>
+                </button>
+
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  data-companion-tab="keypoints"
+                  class="companion-tab-btn inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs sm:text-sm font-heading font-bold text-slate-600 hover:text-ueuNavy transition-all"
+                >
+                  <svg class="w-4 h-4 text-ueuOrange" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                  </svg>
+                  <span data-i18n="tab_keypoints">Penjelasan &amp; Poin Penting</span>
+                </button>
+              </div>
+
+              <!-- Input Pencarian Transkrip -->
+              <div id="transcript-search-wrapper" class="relative w-full md:w-64">
+                <svg class="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
+                </svg>
+                <input
+                  id="transcript-search-input"
+                  type="text"
+                  placeholder="Cari kata di transkrip..."
+                  aria-label="Cari kata di transkrip"
+                  class="w-full pl-9 pr-3 py-2 text-xs sm:text-sm bg-slate-50 border border-slate-200 rounded-lg text-slate-700 placeholder:text-slate-400 focus:outline-none focus:border-ueuBlue focus:bg-white transition-colors"
+                />
+              </div>
+            </div>
+
+            <!-- PANEL 1: TRANSKRIP INTERAKTIF (14 BAGIAN LENGKAP) -->
+            <div id="companion-panel-transcript" class="pt-4">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-slate-500 mb-3.5">
+                <span data-i18n="transcript_hint">Full Presentation Transcript &mdash; <strong>From Subject Matter to Digital Learning</strong> (Klik timestamp untuk melompat ke bagian video).</span>
+                <span id="transcript-count-label" class="font-medium text-slate-400 flex-shrink-0">14 bagian</span>
+              </div>
+
+              <div id="transcript-list-container" class="space-y-3 max-h-96 overflow-y-auto pr-1 transcript-scroll">
+                <!-- Diisi secara dinamis oleh JS -->
+              </div>
+            </div>
+
+            <!-- PANEL 2: PENJELASAN & POIN PENTING (DINAMIS SESUAI BAHASA) -->
+            <div id="companion-panel-keypoints" class="hidden pt-5">
+              <!-- Diisi secara dinamis oleh JS sesuai bahasa aktif -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Tombol Navigasi Bawah Slide 2 -->
+        <div class="mt-6 flex flex-wrap items-center justify-between gap-3">
+          <button
+            type="button"
+            data-go-slide="0"
+            data-i18n="btn_back_intro"
+            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white border border-slate-200 hover:bg-slate-50 text-ueuNavy font-heading font-bold text-xs sm:text-sm shadow-2xs transition-colors"
+          >
+            &larr; Kembali ke Perkenalan
+          </button>
+
+          <button
+            type="button"
+            data-go-slide="2"
+            data-i18n="btn_next_material"
+            class="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg bg-ueuOrange hover:bg-ueuOrangeHover text-white font-heading font-bold text-xs sm:text-sm shadow-sm transition-colors"
+          >
+            Lanjut ke Penjabaran Materi &rarr;
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SLIDE 03: PENJABARAN MATERI (EDITORIAL LANDING PAGE SHOWCASE)
+         ====================================================================== -->
+    <section
+      id="slide-2"
+      class="slide-panel flex-1 flex-col justify-start bg-white text-slate-800"
+      aria-label="Tahap 3: Penjabaran Materi Pembelajaran Digital"
+    >
+      <!-- Hero Editorial Banner -->
+      <div class="relative bg-ueuNavy text-white overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-ueuNavy via-ueuOverlay to-ueuNavy opacity-95" aria-hidden="true"></div>
+        <div class="absolute inset-0 institutional-grid-bg pointer-events-none" aria-hidden="true"></div>
+
+        <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+          <div class="max-w-3xl">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs font-semibold tracking-wide text-amber-300 mb-4">
+              <span class="w-2 h-2 rounded-full bg-ueuOrange"></span>
+              <span data-i18n="mat_hero_badge">03 &bull; PENJABARAN MATERI PEMBELAJARAN DIGITAL</span>
+            </div>
+            <h2 data-i18n="mat_hero_title" class="font-heading font-extrabold text-2xl sm:text-4xl lg:text-[42px] leading-tight text-white mb-4">
+              Mengubah Keahlian Akademik Menjadi Pengalaman Belajar Digital
+            </h2>
+            <p data-i18n="mat_hero_subtitle" class="text-sm sm:text-lg text-slate-100/90 leading-relaxed mb-7">
+              Penjabaran sistematis praktik pengembangan bahan ajar di <strong>Universitas Esa Unggul</strong>&mdash;mulai dari peran <em>Instructional Designer</em>, alur kerja 6 tahap, pendekatan kolaborasi dosen, hingga pemanfaatan teknologi pembelajaran dan media interaktif.
+            </p>
+
+            <!-- Quick Section Jump Links -->
+            <div class="flex flex-wrap items-center gap-2">
+              <a href="#mat-sec-role" data-i18n="mat_jump_role" class="px-3.5 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 text-xs font-heading font-bold text-white transition-colors">
+                Peran Instructional Designer
+              </a>
+              <a href="#mat-sec-flow" data-i18n="mat_jump_flow" class="px-3.5 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 text-xs font-heading font-bold text-white transition-colors">
+                Alur 6 Tahap
+              </a>
+              <a href="#mat-sec-approach" data-i18n="mat_jump_approach" class="px-3.5 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 text-xs font-heading font-bold text-white transition-colors">
+                Dua Pendekatan
+              </a>
+              <a href="#mat-sec-tools" data-i18n="mat_jump_tools" class="px-3.5 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 text-xs font-heading font-bold text-white transition-colors">
+                Perangkat &amp; Media
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Konten Utama Penjabaran Materi -->
+      <div id="material-editorial-root" class="w-full">
+        <!-- Diisi secara dinamis oleh renderMaterialShowcase() sesuai bahasa aktif (ID / EN) -->
+      </div>
+
+      <!-- Navigasi Bawah Slide 03 -->
+      <div class="bg-ueuLight border-t border-slate-200 py-6 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-3">
+          <button
+            type="button"
+            data-go-slide="1"
+            data-i18n="btn_back_video"
+            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white border border-slate-200 hover:bg-slate-50 text-ueuNavy font-heading font-bold text-xs sm:text-sm shadow-2xs transition-colors"
+          >
+            &larr; Kembali ke Video Presentasi
+          </button>
+
+          <button
+            type="button"
+            data-go-slide="3"
+            data-i18n="btn_next_closing"
+            class="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg bg-ueuOrange hover:bg-ueuOrangeHover text-white font-heading font-bold text-xs sm:text-sm shadow-sm transition-colors"
+          >
+            Lanjut ke Penutup &rarr;
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SLIDE 04: TERIMA KASIH & PENUTUP
+         ====================================================================== -->
+    <section
+      id="slide-3"
+      class="slide-panel flex-1 flex-col justify-center relative bg-ueuNavy text-white overflow-hidden"
+      aria-label="Tahap 4: Terima Kasih dan Penutup"
+    >
+      <div class="absolute inset-0 bg-gradient-to-br from-ueuNavy via-ueuOverlay to-ueuNavy opacity-95" aria-hidden="true"></div>
+      <div class="absolute inset-0 institutional-grid-bg pointer-events-none" aria-hidden="true"></div>
+
+      <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 text-center">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-semibold tracking-wide text-amber-300 mb-6">
+          <span class="w-2 h-2 rounded-full bg-ueuOrange"></span>
+          <span data-i18n="closing_badge">PENUTUP PRESENTASI</span>
+        </div>
+
+        <h2 data-i18n="closing_title" class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white leading-tight mb-5">
+          Terima Kasih atas Perhatian Anda
+        </h2>
+
+        <p data-i18n="closing_desc" class="text-sm sm:text-lg text-slate-100/90 leading-relaxed max-w-2xl mx-auto mb-8">
+          Semoga pemaparan mengenai praktik pengembangan pembelajaran digital di <strong>Universitas Esa Unggul</strong> ini bermanfaat sebagai referensi bersama dalam meningkatkan kualitas pengalaman belajar mahasiswa.
+        </p>
+
+        <!-- Kartu Identitas Institusi -->
+        <div class="max-w-lg mx-auto bg-white/10 border border-white/20 rounded-2xl p-6 mb-9 text-left sm:text-center">
+          <p class="font-heading font-extrabold text-base sm:text-lg text-white">
+            Universitas Esa Unggul
+          </p>
+          <p data-i18n="closing_unit" class="text-xs sm:text-sm text-amber-300 font-medium mt-1">
+            Digital Campus &mdash; Pengembangan Pembelajaran Digital
+          </p>
+        </div>
+
+        <!-- Tombol Aksi Penutup -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5">
+          <button
+            type="button"
+            data-go-slide="1"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-ueuOrange hover:bg-ueuOrangeHover text-white font-heading font-bold text-sm shadow-lg transition-colors"
+          >
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+            <span data-i18n="closing_replay">Tonton Ulang Video Presentasi</span>
+          </button>
+
+          <button
+            type="button"
+            data-go-slide="0"
+            data-i18n="closing_restart"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-white/10 hover:bg-white/20 border border-white/25 text-white font-heading font-bold text-sm transition-colors"
+          >
+            Kembali ke Halaman Awal
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       FOOTER KONTROL MULTIMEDIA
+       ======================================================================== -->
+  <footer class="bg-[#051A36] border-t border-white/10 text-slate-300 py-3 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3 text-xs">
+      <div class="flex items-center gap-2 text-slate-400">
+        <span data-i18n="footer_hint_prefix" class="hidden sm:inline">Gunakan tombol panah keyboard</span>
+        <kbd class="px-1.5 py-0.5 rounded bg-white/10 border border-white/15 text-slate-200 font-mono text-[11px]">&larr;</kbd>
+        <kbd class="px-1.5 py-0.5 rounded bg-white/10 border border-white/15 text-slate-200 font-mono text-[11px]">&rarr;</kbd>
+        <span data-i18n="footer_hint_suffix">atau usap layar untuk berpindah tahap.</span>
+      </div>
+
+      <div class="flex items-center gap-2 ml-auto">
+        <button
+          id="footer-prev-btn"
+          type="button"
+          data-i18n="footer_prev"
+          class="px-3.5 py-1.5 rounded-md bg-white/10 hover:bg-white/20 disabled:opacity-40 disabled:pointer-events-none text-white font-heading font-bold transition-colors"
+        >
+          &larr; Sebelumnya
+        </button>
+        <button
+          id="footer-next-btn"
+          type="button"
+          data-i18n="footer_next"
+          class="px-3.5 py-1.5 rounded-md bg-ueuOrange hover:bg-ueuOrangeHover disabled:opacity-40 disabled:pointer-events-none text-white font-heading font-bold transition-colors"
+        >
+          Berikutnya &rarr;
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       JAVASCRIPT INTERAKTIF MULTIMEDIA (DUAL-LANGUAGE: ID & EN)
+       ======================================================================== -->
+  <script>
+    /* Konfigurasi Utama Multimedia */
+    const MULTIMEDIA_CONFIG = {
+      officialLogoPath: "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/LOGO_UEU_BY_ASU-06.png/1920px-LOGO_UEU_BY_ASU-06.png?utm_source=id.wikipedia.org&utm_campaign=index&utm_content=thumbnail",
+      youtubeVideoUrl: "https://youtu.be/uiB4CYEGHwE",
+      defaultLanguage: "id"
+    };
+
+    let currentLang = MULTIMEDIA_CONFIG.defaultLanguage;
+    let activeHighlightIndex = 0;
+    let activeProcessStageIndex = 0;
+    let currentSlideIndex = 0;
+    const TOTAL_SLIDES = 4;
+
+    /* Kamus Terjemahan Antarmuka (Bahasa Indonesia & English) */
+    const UI_COPY = {
+      id: {
+        nav_slide_0: "01. Perkenalan",
+        nav_slide_0_short: "01. Awal",
+        nav_slide_1: "02. Video Presentasi",
+        nav_slide_1_short: "02. Video",
+        nav_slide_2: "03. Penjabaran Materi",
+        nav_slide_2_short: "03. Materi",
+        nav_slide_3: "04. Terima Kasih",
+        nav_slide_3_short: "04. Penutup",
+        hero_title: "Dari Bahan Kajian Menuju Pembelajaran Digital",
+        hero_subtitle: "Mengubah Keahlian Akademik Dosen Menjadi Pengalaman Pembelajaran Digital yang Terstruktur.",
+        hero_desc: "Situs web ini menyajikan praktik pengembangan pembelajaran digital di <strong>Universitas Esa Unggul</strong>, khususnya dalam merancang dan mengemas materi perkuliahan bagi mahasiswa.",
+        hero_cta: "Mulai & Tonton Video Presentasi",
+        highlight_label: "Sorotan Materi",
+        highlight_hint: "Klik topik untuk melihat ringkasan",
+        highlight_tab_0: "Desain Instruksional",
+        highlight_tab_1: "Media Digital",
+        highlight_tab_2: "Integrasi LMS",
+        highlight_next_step: "Tahap Berikutnya →",
+        highlight_watch_video: "Lihat di Video →",
+        video_eyebrow: "Presentasi Pembelajaran Digital",
+        video_title: "Video Presentasi Pembelajaran Digital",
+        video_open_yt: "Buka di YouTube",
+        video_desc: "Simak pemaparan lengkap mengenai proses perancangan, pengembangan, dan penerapan materi pembelajaran digital di Universitas Esa Unggul.",
+        video_chapters_label: "Bab Video:",
+        video_watch_yt: "Tonton Langsung di YouTube",
+        tab_transcript: "Transkrip Interaktif",
+        tab_keypoints: "Penjelasan & Poin Penting",
+        search_placeholder: "Cari kata di transkrip...",
+        transcript_hint: "Transkrip Lengkap Presentasi — <strong>From Subject Matter to Digital Learning</strong> (Klik timestamp untuk melompat ke bagian video).",
+        transcript_count_unit: "bagian",
+        transcript_empty: "Tidak ada bagian transkrip yang cocok dengan kata kunci pencarian Anda.",
+        btn_back_intro: "← Kembali ke Perkenalan",
+        btn_next_material: "Lanjut ke Penjabaran Materi →",
+        btn_back_video: "← Kembali ke Video Presentasi",
+        btn_next_closing: "Lanjut ke Penutup →",
+        mat_hero_badge: "03 • PENJABARAN MATERI PEMBELAJARAN DIGITAL",
+        mat_hero_title: "Mengubah Keahlian Akademik Menjadi Pengalaman Belajar Digital",
+        mat_hero_subtitle: "Penjabaran sistematis praktik pengembangan bahan ajar di <strong>Universitas Esa Unggul</strong>—mulai dari peran <em>Instructional Designer</em>, alur kerja 6 tahap, pendekatan kolaborasi dosen, hingga pemanfaatan teknologi pembelajaran dan media interaktif.",
+        mat_jump_role: "Peran Instructional Designer",
+        mat_jump_flow: "Alur 6 Tahap",
+        mat_jump_approach: "Dua Pendekatan",
+        mat_jump_tools: "Perangkat & Media",
+        closing_badge: "PENUTUP PRESENTASI",
+        closing_title: "Terima Kasih atas Perhatian Anda",
+        closing_desc: "Semoga pemaparan mengenai praktik pengembangan pembelajaran digital di <strong>Universitas Esa Unggul</strong> ini bermanfaat sebagai referensi bersama dalam meningkatkan kualitas pengalaman belajar mahasiswa.",
+        closing_unit: "Digital Campus — Pengembangan Pembelajaran Digital",
+        closing_replay: "Tonton Ulang Video Presentasi",
+        closing_restart: "Kembali ke Halaman Awal",
+        footer_hint_prefix: "Gunakan tombol panah keyboard",
+        footer_hint_suffix: "atau usap layar untuk berpindah tahap.",
+        footer_prev: "← Sebelumnya",
+        footer_next: "Berikutnya →"
+      },
+      en: {
+        nav_slide_0: "01. Introduction",
+        nav_slide_0_short: "01. Intro",
+        nav_slide_1: "02. Video Presentation",
+        nav_slide_1_short: "02. Video",
+        nav_slide_2: "03. Material Breakdown",
+        nav_slide_2_short: "03. Content",
+        nav_slide_3: "04. Thank You",
+        nav_slide_3_short: "04. Closing",
+        hero_title: "From Subject Matter to Digital Learning",
+        hero_subtitle: "Transforming Academic Expertise into Structured Digital Learning Experiences.",
+        hero_desc: "This showcase presents the digital learning development practices at <strong>Universitas Esa Unggul</strong>, highlighting how course materials are designed, produced, and delivered to students.",
+        hero_cta: "Start & Watch Presentation",
+        highlight_label: "Key Highlights",
+        highlight_hint: "Click a topic to view summary",
+        highlight_tab_0: "Instructional Design",
+        highlight_tab_1: "Digital Media",
+        highlight_tab_2: "LMS Integration",
+        highlight_next_step: "Next Stage →",
+        highlight_watch_video: "Watch in Video →",
+        video_eyebrow: "Digital Learning Presentation",
+        video_title: "Digital Learning Presentation Video",
+        video_open_yt: "Open on YouTube",
+        video_desc: "Watch the complete presentation on how digital learning materials are designed, produced, and integrated at Universitas Esa Unggul.",
+        video_chapters_label: "Chapters:",
+        video_watch_yt: "Watch Directly on YouTube",
+        tab_transcript: "Interactive Transcript",
+        tab_keypoints: "Summary & Key Points",
+        search_placeholder: "Search transcript keywords...",
+        transcript_hint: "Full Presentation Transcript — <strong>From Subject Matter to Digital Learning</strong> (Click any timestamp to jump in the video).",
+        transcript_count_unit: "sections",
+        transcript_empty: "No transcript sections match your search query.",
+        btn_back_intro: "← Back to Introduction",
+        btn_next_material: "Continue to Material Breakdown →",
+        btn_back_video: "← Back to Presentation Video",
+        btn_next_closing: "Continue to Closing →",
+        mat_hero_badge: "03 • DIGITAL LEARNING MATERIAL BREAKDOWN",
+        mat_hero_title: "Transforming Academic Expertise into Structured Digital Learning",
+        mat_hero_subtitle: "A comprehensive editorial breakdown of digital course development practices at <strong>Universitas Esa Unggul</strong>—covering the Instructional Designer's role, 6-stage workflow, faculty collaboration models, and interactive learning tools.",
+        mat_jump_role: "Instructional Designer Role",
+        mat_jump_flow: "6-Stage Workflow",
+        mat_jump_approach: "Two Approaches",
+        mat_jump_tools: "Tools & Media",
+        closing_badge: "PRESENTATION CLOSING",
+        closing_title: "Thank You for Your Attention",
+        closing_desc: "We hope this overview of digital learning material development practices at <strong>Universitas Esa Unggul</strong> serves as a valuable reference for enhancing student learning experiences.",
+        closing_unit: "Digital Campus — Digital Learning Development",
+        closing_replay: "Rewatch Presentation Video",
+        closing_restart: "Back to Start",
+        footer_hint_prefix: "Use keyboard arrow keys",
+        footer_hint_suffix: "or swipe to navigate stages.",
+        footer_prev: "← Previous",
+        footer_next: "Next →"
+      }
+    };
+
+    /* Data Penjabaran Materi Lengkap (Slide 03 — Editorial Landing Page) */
+    const MATERIAL_SHOWCASE_DATA = {
+      id: {
+        aboutEyebrow: "Gambaran Umum",
+        aboutTitle: "Mengembangkan Pembelajaran Digital di Universitas Esa Unggul",
+        aboutParagraphs: [
+          "Pengembangan pembelajaran digital di Universitas Esa Unggul berfokus pada transformasi keahlian akademik dosen (Subject Matter Experts) menjadi paket pembelajaran terstruktur yang siap digunakan mahasiswa di dalam Learning Management System (LMS).",
+          "Setiap mata kuliah dirancang untuk berjalan selama 14 hingga 16 minggu pertemuan dalam satu semester, dengan 14 topik pembelajaran yang dilengkapi bahan ajar, aktivitas belajar mandiri maupun sinkron, serta evaluasi capaian pembelajaran."
+        ],
+        roleEyebrow: "Peran Utama",
+        roleTitle: "Peran Instructional Designer dalam Pembelajaran Digital",
+        roleSubtitle: "Menjembatani kepakaran akademik dosen dengan struktur pedagogis dan media digital yang mudah diakses mahasiswa.",
+        roles: [
+          {
+            num: "01",
+            title: "Transformasi Konten Akademik",
+            desc: "Mengolah Rencana Pembelajaran Semester (RPS), silabus, dan modul ajar menjadi alur belajar yang sistematis dan selaras dengan CPL serta CPMK."
+          },
+          {
+            num: "02",
+            title: "Kolaborasi dengan Dosen (SME)",
+            desc: "Berdiskusi bersama dosen pengampu untuk memetakan materi inti, skenario studi kasus, serta memastikan ketepatan substansi keilmuan."
+          },
+          {
+            num: "03",
+            title: "Pengembangan Media Pembelajaran",
+            desc: "Merancang berbagai format media—mulai dari presentasi, video microlearning, infografis, hingga multimedia interaktif berbasis web."
+          },
+          {
+            num: "04",
+            title: "Integrasi & Keterpakaian di LMS",
+            desc: "Menyusun seluruh komponen materi, aktivitas, dan asesmen ke dalam Moodle LMS agar mudah diakses dan dipelajari mahasiswa."
+          }
+        ],
+        flowEyebrow: "Alur Kerja 6 Tahap",
+        flowTitle: "Dari Bahan Kajian Menuju Pembelajaran Digital",
+        flowSubtitle: "Klik setiap tahapan di bawah ini untuk melihat aktivitas utama dan luaran yang dihasilkan.",
+        stages: [
+          {
+            num: "01",
+            title: "Pengumpulan Materi",
+            desc: "Mengumpulkan dokumen perangkat pembelajaran dari dosen pengampu sebagai fondasi penyusunan mata kuliah.",
+            activities: [
+              "Meminta Rencana Pembelajaran Semester (RPS) dan silabus dari dosen.",
+              "Mengumpulkan 14 modul pembelajaran untuk 14 topik perkuliahan dalam satu semester.",
+              "Menghimpun bahan referensi pendukung dan instrumen evaluasi awal."
+            ],
+            outputs: "RPS, Silabus, dan 14 Modul Pembelajaran"
+          },
+          {
+            num: "02",
+            title: "Analisis & Kurasi Materi",
+            desc: "Menelaah kelengkapan bahan ajar serta kesesuaiannya dengan capaian pembelajaran mata kuliah.",
+            activities: [
+              "Menganalisis kedalaman materi pada setiap topik pertemuan.",
+              "Memeriksa keselarasan bahan ajar dengan CPL dan CPMK pada RPS.",
+              "Meninjau hasil analisis bersama dosen pengampu sebelum tahap perancangan."
+            ],
+            outputs: "Catatan Kurasi & Pemetaan Topik"
+          },
+          {
+            num: "03",
+            title: "Desain Instruksional",
+            desc: "Merencanakan struktur pembelajaran, alur penyajian materi, serta pemilihan format media yang paling sesuai.",
+            activities: [
+              "Menyusun alur belajar (learning flow) pada setiap sesi pertemuan.",
+              "Menentukan jenis media: video pembelajaran, PowerPoint, atau multimedia interaktif.",
+              "Merancang aktivitas belajar mandiri dan evaluasi pemahaman mahasiswa."
+            ],
+            outputs: "Rancangan Alur Belajar & Storyboard Media"
+          },
+          {
+            num: "04",
+            title: "Pengembangan Bahan Ajar",
+            desc: "Memproduksi seluruh aset pembelajaran digital bersama tim Production House (desainer presentasi, videografer, dan editor).",
+            activities: [
+              "Menyiapkan bahan paparan visual sebelum dosen melakukan rekaman studio.",
+              "Merekam dan menyunting video microlearning agar ringkas dan fokus pada topik.",
+              "Mengembangkan media interaktif, kuis, dan tugas terstruktur."
+            ],
+            outputs: "Modul Digital, Slide Presentasi, Video & Media Interaktif"
+          },
+          {
+            num: "05",
+            title: "Penjaminan Mutu & Validasi",
+            desc: "Memeriksa kualitas teknis media serta memvalidasi ketepatan materi bersama dosen pengampu.",
+            activities: [
+              "Mengecek kualitas visual, audio, keterbacaan, dan fungsi interaktivitas media.",
+              "Membagikan draf maupun hasil akhir materi kepada dosen untuk ditinjau.",
+              "Melakukan penyempurnaan berdasarkan masukan validasi dari dosen."
+            ],
+            outputs: "Bahan Ajar Tervalidasi Dosen"
+          },
+          {
+            num: "06",
+            title: "Integrasi ke Moodle LMS",
+            desc: "Mengunggah dan menata seluruh materi yang telah disetujui ke dalam sistem pembelajaran daring Universitas Esa Unggul.",
+            activities: [
+              "Menyusun pengantar mata kuliah, RPS, infografis relevansi, dan aktivitas pembuka.",
+              "Mengintegrasikan video, modul, multimedia interaktif, kuis, dan penugasan per minggu.",
+              "Memastikan seluruh tautan dan aktivitas siap diakses mahasiswa."
+            ],
+            outputs: "Paket Mata Kuliah Siap Akses di Moodle LMS"
+          }
+        ],
+        approachEyebrow: "Model Kerja Sama",
+        approachTitle: "Dua Pendekatan Pengembangan Bahan Ajar",
+        approachSubtitle: "Kedua pendekatan diterapkan secara fleksibel menyesuaikan ketersediaan waktu dan kebutuhan dosen pengampu mata kuliah.",
+        approaches: [
+          {
+            badge: "Pendekatan A",
+            title: "Collaborative Development",
+            desc: "Dosen terlibat aktif secara langsung sejak tahap awal hingga akhir, mulai dari perencanaan, penyusunan bahan, proses rekaman video pembelajaran, hingga validasi akhir.",
+            points: [
+              "Dosen menyampaikan langsung materi pada sesi rekaman video.",
+              "Diskusi intensif antara dosen dan Instructional Designer pada setiap tahap.",
+              "Menghasilkan paket perkuliahan lengkap berbasis paparan langsung dosen."
+            ]
+          },
+          {
+            badge: "Pendekatan B",
+            title: "Independent Development",
+            desc: "Tim Instructional Design mengambil peran lebih besar dalam mengolah RPS, modul, dan silabus dari dosen menjadi presentasi, video, dan media interaktif, yang kemudian tetap divalidasi oleh dosen.",
+            points: [
+              "Solusi efektif ketika jadwal dosen terbatas untuk proses rekaman.",
+              "Tim ID mengembangkan media berdasarkan modul & RPS resmi dosen.",
+              "Dosen tetap memegang kendali penuh atas peninjauan dan persetujuan konten."
+            ]
+          }
+        ],
+        toolsEyebrow: "Ekosistem Perangkat & Produk",
+        toolsTitle: "Teknologi Pendukung & Produk Pembelajaran Digital",
+        toolGroups: [
+          {
+            category: "Produktivitas & Konten",
+            items: ["Microsoft Word", "Microsoft PowerPoint", "Microsoft Excel"]
+          },
+          {
+            category: "Kolaborasi & Penyimpanan",
+            items: ["Google Workspace", "Google Sites (Publikasi Media)"]
+          },
+          {
+            category: "AI & Kreasi Pembelajaran",
+            items: ["Gamma", "Gemini Canvas", "NotebookLM"]
+          },
+          {
+            category: "Produksi & Penyuntingan Video",
+            items: ["CapCut", "Adobe Premiere Pro", "Camtasia"]
+          }
+        ],
+        asyncTitle: "Menjaga Kualitas Pembelajaran Asinkron",
+        asyncPoints: [
+          {
+            label: "Video Microlearning Dosen",
+            detail: "Idealnya setiap topik dilengkapi video microlearning berdurasi singkat dari dosen agar mahasiswa mudah memahami inti pembahasan."
+          },
+          {
+            label: "Eksplorasi H5P & Perangkat Authoring",
+            detail: "H5P turut dieksplorasi sebagai alternatif media interaktif, dengan mempertimbangkan kebutuhan integrasi lintas unit dan penyesuaian teknis."
+          },
+          {
+            label: "Inovasi dengan Gemini Canvas & NotebookLM",
+            detail: "Dimanfaatkan secara praktis untuk membangun simulasi berbasis skenario kasus (seperti studi kasus Junior Data Analyst pada mata kuliah Basis Data) serta Video Overview terstruktur."
+          }
+        ]
+      },
+      en: {
+        aboutEyebrow: "Institutional Overview",
+        aboutTitle: "Developing Digital Learning at Universitas Esa Unggul",
+        aboutParagraphs: [
+          "Digital learning development at Universitas Esa Unggul focuses on transforming faculty academic expertise (Subject Matter Experts) into structured course packages ready for student access inside the Learning Management System (LMS).",
+          "Each semester spans 14 to 16 weeks, structured around 14 core learning topics equipped with modules, asynchronous and synchronous learning activities, and outcome-aligned assessments."
+        ],
+        roleEyebrow: "Core Responsibilities",
+        roleTitle: "The Role of Instructional Designer in Distance & Digital Learning",
+        roleSubtitle: "Bridging lecturers' academic expertise with structured, accessible digital learning experiences.",
+        roles: [
+          {
+            num: "01",
+            title: "Transforming Academic Content",
+            desc: "Translating Semester Learning Plans (RPS), syllabi, and lecture modules into structured learning pathways aligned with CPL and CPMK outcomes."
+          },
+          {
+            num: "02",
+            title: "Collaborating with SMEs",
+            desc: "Partnering with lecturers to map key concepts, design case scenarios, and preserve academic rigor across every topic."
+          },
+          {
+            num: "03",
+            title: "Developing Learning Media",
+            desc: "Designing diverse instructional formats—ranging from slide presentations and microlearning videos to web-based interactive multimedia."
+          },
+          {
+            num: "04",
+            title: "LMS Integration & Usability",
+            desc: "Organizing learning resources, activities, and assessments inside Moodle LMS so students can navigate and learn independently."
+          }
+        ],
+        flowEyebrow: "6-Stage Workflow",
+        flowTitle: "From Academic Content to Digital Learning",
+        flowSubtitle: "Select each stage below to explore key activities and deliverables.",
+        stages: [
+          {
+            num: "01",
+            title: "Content Collection",
+            desc: "Gathering foundational course documents from lecturers to initiate structured digital course development.",
+            activities: [
+              "Collect the RPS (Semester Learning Plan) and course syllabus from lecturers.",
+              "Gather 14 learning modules corresponding to 14 weekly topics per semester.",
+              "Compile supporting references and baseline assessment instruments."
+            ],
+            outputs: "RPS, Syllabus, and 14 Learning Modules"
+          },
+          {
+            num: "02",
+            title: "Material Analysis & Curation",
+            desc: "Reviewing collected learning materials to ensure pedagogical clarity and outcome alignment.",
+            activities: [
+              "Analyze content scope and structure across all 14 topics.",
+              "Verify alignment with graduate (CPL) and course (CPMK) learning outcomes.",
+              "Review findings collaboratively with lecturers prior to media design."
+            ],
+            outputs: "Curation Notes & Topic Alignment Map"
+          },
+          {
+            num: "03",
+            title: "Instructional Design",
+            desc: "Planning the learning sequence, student activities, and optimal media formats for each session.",
+            activities: [
+              "Define clear weekly learning flows and student engagement checkpoints.",
+              "Select appropriate media formats: video, slide decks, or interactive multimedia.",
+              "Design formative quizzes and structured learning tasks."
+            ],
+            outputs: "Learning Flow Blueprint & Media Storyboards"
+          },
+          {
+            num: "04",
+            title: "Development of Learning Materials",
+            desc: "Producing digital learning assets with support from the Production House team (PPT developers, videographers, and editors).",
+            activities: [
+              "Prepare visual presentation decks prior to studio video recording.",
+              "Record and edit concise microlearning videos focused on key concepts.",
+              "Build interactive multimedia, web-based activities, and assessments."
+            ],
+            outputs: "Digital Modules, Presentations, Videos & Interactive Media"
+          },
+          {
+            num: "05",
+            title: "Quality Assurance & Validation",
+            desc: "Reviewing media quality and validating subject-matter accuracy together with the lecturer.",
+            activities: [
+              "Inspect audio-visual clarity, usability, and interactive functionality.",
+              "Share work-in-progress and completed assets with lecturers for verification.",
+              "Refine materials based on academic feedback from the SME."
+            ],
+            outputs: "Lecturer-Validated Digital Course Package"
+          },
+          {
+            num: "06",
+            title: "Moodle LMS Integration",
+            desc: "Deploying and structuring all approved learning materials inside Universitas Esa Unggul's Moodle LMS.",
+            activities: [
+              "Set up course introductions, RPS documents, relevance infographics, and warm-up activities.",
+              "Integrate weekly videos, modules, interactive media, quizzes, and assignments.",
+              "Verify student accessibility across all course modules."
+            ],
+            outputs: "Live Structured Course in Moodle LMS"
+          }
+        ],
+        approachEyebrow: "Development Models",
+        approachTitle: "Two Approaches to Learning Material Development",
+        approachSubtitle: "Both approaches are applied flexibly depending on lecturer availability and course production requirements.",
+        approaches: [
+          {
+            badge: "Approach A",
+            title: "Collaborative Development",
+            desc: "Lecturers are directly involved from start to finish—including planning, content creation, studio video recording, and final validation.",
+            points: [
+              "Lecturers directly record and present instructional video sessions.",
+              "Close iterative collaboration between faculty and Instructional Designers.",
+              "Produces a complete lecturer-led digital course package."
+            ]
+          },
+          {
+            badge: "Approach B",
+            title: "Independent Development",
+            desc: "The Instructional Design team takes a larger role in transforming lecturer-provided RPS, modules, and scripts into presentations, videos, and interactive media—followed by mandatory lecturer review and approval.",
+            points: [
+              "Practical pathway when lecturer studio recording schedules are constrained.",
+              "ID team builds digital assets directly from verified RPS and modules.",
+              "Lecturers retain full academic authority over content validation."
+            ]
+          }
+        ],
+        toolsEyebrow: "Technology & Outputs",
+        toolsTitle: "Supporting Tools & Asynchronous Learning Quality",
+        toolGroups: [
+          {
+            category: "Productivity & Content",
+            items: ["Microsoft Word", "Microsoft PowerPoint", "Microsoft Excel"]
+          },
+          {
+            category: "Collaboration & Publishing",
+            items: ["Google Workspace", "Google Sites (Web Deployment)"]
+          },
+          {
+            category: "AI & Learning Creation",
+            items: ["Gamma", "Gemini Canvas", "NotebookLM"]
+          },
+          {
+            category: "Video Production & Editing",
+            items: ["CapCut", "Adobe Premiere Pro", "Camtasia"]
+          }
+        ],
+        asyncTitle: "Ensuring Quality in Asynchronous Learning",
+        asyncPoints: [
+          {
+            label: "Lecturer-Produced Microlearning Videos",
+            detail: "Ideally, each topic features concise microlearning videos recorded by the lecturer to make complex concepts easier to digest."
+          },
+          {
+            label: "Exploring H5P & Authoring Tools",
+            detail: "H5P is explored as an interactive authoring option while navigating cross-unit technical integration and permission workflows."
+          },
+          {
+            label: "Practical Innovation with Gemini Canvas & NotebookLM",
+            detail: "Used to create scenario-based interactive learning (such as the Junior Data Analyst simulation in Database courses) and structured NotebookLM Video Overviews."
+          }
+        ]
+      }
+    };
+
+    /* Data Kartu Sorotan Materi (Slide 01) */
+    const INTRO_HIGHLIGHTS = {
+      id: [
+        {
+          stage: "Tahap Perancangan",
+          title: "Peran Instructional Designer",
+          body: "Menyelaraskan Rencana Pembelajaran Semester (RPS) dan bahan kajian dosen menjadi alur pembelajaran digital yang terstruktur bagi mahasiswa.",
+          counter: "Topik 1 dari 3"
+        },
+        {
+          stage: "Tahap Produksi",
+          title: "Pengembangan Media Pembelajaran",
+          body: "Mengemas materi perkuliahan ke dalam modul, presentasi, video microlearning, serta media interaktif berbantuan Gemini Canvas dan NotebookLM.",
+          counter: "Topik 2 dari 3"
+        },
+        {
+          stage: "Tahap Penyampaian",
+          title: "Validasi & Integrasi Moodle LMS",
+          body: "Melakukan peninjauan mutu bersama dosen dan mengunggah materi yang telah disetujui ke dalam platform Moodle LMS Universitas Esa Unggul.",
+          counter: "Topik 3 dari 3"
+        }
+      ],
+      en: [
+        {
+          stage: "Design Stage",
+          title: "Role of Instructional Designer",
+          body: "Aligning Semester Learning Plans (RPS) and faculty subject matter into structured digital learning pathways ready for student engagement.",
+          counter: "Topic 1 of 3"
+        },
+        {
+          stage: "Production Stage",
+          title: "Learning Media Development",
+          body: "Transforming course content into modules, slide decks, microlearning videos, and interactive multimedia supported by Gemini Canvas and NotebookLM.",
+          counter: "Topic 2 of 3"
+        },
+        {
+          stage: "Delivery Stage",
+          title: "Validation & Moodle LMS Integration",
+          body: "Conducting quality reviews with lecturers and integrating approved learning packages into Universitas Esa Unggul's Moodle LMS.",
+          counter: "Topic 3 of 3"
+        }
+      ]
+    };
+
+    /* Transkrip Lengkap 14 Bagian (Berdasarkan Presentasi Tri Panunggal) */
+    const TRANSCRIPT_SECTIONS = [
+      {
+        num: "01",
+        timeLabel: "00:00",
+        seconds: 0,
+        title: "Opening",
+        paragraphs: [
+          "Hello, everyone. First of all, thank you for giving me this opportunity.",
+          "Today, I would like to share some of our experiences and practices at Universitas Esa Unggul, particularly in developing learning materials for distance education and online learning.",
+          "I believe every institution has its own approach and challenges in developing digital learning. So, I would like to share how we manage this process, from collaborating with Subject Matter Experts (SMEs), developing learning materials, and producing digital media, to integrating everything into the Learning Management System (LMS).",
+          "I will also introduce some of the tools we use and show you practical examples of our development process. I hope this session will be an opportunity to share experiences, exchange ideas, and explore practices that we can learn from and adapt at our own institutions.",
+          "Let's begin by looking at the role of instructional design and how we manage the development of learning materials at Universitas Esa Unggul."
+        ]
+      },
+      {
+        num: "02",
+        timeLabel: "01:13",
+        seconds: 73,
+        title: "The Role of Instructional Designer in Distance Learning",
+        paragraphs: [
+          "Hello, everyone. My name is Tri Panunggal from Universitas Esa Unggul, Indonesia.",
+          "Today, I would like to share our experience in developing digital learning materials for online and distance education, particularly our role and practices as Instructional Designers.",
+          "In distance education, Instructional Designers play an important role in bridging lecturers' academic expertise and structured digital learning materials that are ready to be used in an LMS.",
+          "Our responsibilities include content development, collaboration with lecturers, developing different learning media, and ensuring that all materials are accessible and usable by students. That is the main idea."
+        ]
+      },
+      {
+        num: "03",
+        timeLabel: "02:03",
+        seconds: 123,
+        title: "Development Flow of Distance Learning Materials",
+        paragraphs: [
+          "At Universitas Esa Unggul, how do we develop these digital learning materials? Let me walk you through the six main stages.",
+          "First, we collect the learning materials. We ask lecturers to provide the RPS, or Semester Learning Plan, along with the syllabus and learning modules. Each semester consists of 14 learning topics, so lecturers need to prepare 14 modules.",
+          "After collecting the materials, we analyze and review them to make sure they are appropriate. We then review the materials with the lecturers.",
+          "Next, our Instructional Design team plans how the RPS and modules can be transformed into learning media that make it easier for students to learn. These may include videos, interactive multimedia, or PowerPoint presentations. We define the learning flow and decide on the most suitable formats. This is the instructional design stage.",
+          "In the fourth stage, we develop the materials with support from our Production House team. The team includes PowerPoint developers, video editors, and videographers. Before lecturers record their videos, we prepare the materials. Our team also handles the editing, so lecturers can focus on delivering the content while we support the production process.",
+          "After development, I review the quality of the materials, check the media, and validate the content together with the lecturer. We usually share the materials with lecturers while they are still in progress or once they are complete, so they can confirm whether everything is accurate.",
+          "Once approved, we move to the final stage: integrating the materials into the LMS. These are the six main stages of online learning-material development at Universitas Esa Unggul. The process involves close collaboration among the Production House, Instructional Design team, editors, PowerPoint developers, and SMEs, who provide the modules and RPS."
+        ]
+      },
+      {
+        num: "04",
+        timeLabel: "04:37",
+        seconds: 277,
+        title: "Two Approaches to Learning Material Development",
+        paragraphs: [
+          "In developing learning materials, we generally use two approaches: Collaborative Development and Independent Development. What is the difference?",
+          "In Collaborative Development, lecturers are directly involved from beginning to end, including planning, content development, and material validation. This also includes producing instructional videos. Lecturers play an important role in creating a complete course package.",
+          "The second approach is Independent Development. In this approach, the Instructional Design team takes a bigger role in developing the materials based on the RPS, modules, and syllabus or scripts provided by lecturers.",
+          "We then develop the presentations, digital media, and learning activities, including the videos. Once the materials are ready, we ask the SME or lecturer to review and validate them. The lecturer remains responsible for checking and approving the content."
+        ]
+      },
+      {
+        num: "05",
+        timeLabel: "06:20",
+        seconds: 380,
+        title: "Tools & Technology",
+        paragraphs: [
+          "To support this process, we use several tools and technologies that help us develop digital learning materials. We use Microsoft Office for productivity and content development.",
+          "Google Workspace supports collaboration, file storage, and communication across teams, both within the Digital Campus team and with academic departments.",
+          "We also use AI-powered tools such as Gamma, Gemini Canvas, and NotebookLM. Later, I will briefly demonstrate how we use Gemini Canvas and NotebookLM to develop learning materials more efficiently and at scale. These AI-powered learning-creation tools help us with content development and learning design.",
+          "We also use CapCut, Adobe Premiere Pro, and Camtasia to produce and edit instructional videos. Together, these tools help us create digital learning products."
+        ]
+      },
+      {
+        num: "06",
+        timeLabel: "07:42",
+        seconds: 462,
+        title: "Digital Learning Materials: Products and Outputs",
+        paragraphs: [
+          "Our learning-material outputs include learning modules, presentations, instructional videos, quizzes, assignments, and assessments. We integrate all these components into Moodle, our Learning Management System, so students can access the materials and complete learning activities in a structured way.",
+          "In addition to conventional learning materials, we also develop alternative learning media. These alternatives respond to our production workflow, the number of learning products we need to deliver, and students' learning needs.",
+          "We develop interactive multimedia, interactive videos, web-based learning media, and interactive web applications to create more engaging and interactive learning experiences.",
+          "When lecturers are unable to record instructional videos or produce learning materials directly, our Instructional Design team can develop alternatives such as interactive multimedia, interactive videos, web-based learning, and interactive web applications with the support of Gemini Canvas. I will explain more about this in a moment."
+        ]
+      },
+      {
+        num: "07",
+        timeLabel: "09:38",
+        seconds: 578,
+        title: "Ensuring the Quality of Asynchronous Learning",
+        paragraphs: [
+          "For asynchronous learning, ideally, every topic should include a microlearning video produced by the lecturer. However, lecturers may have difficulty finding time for recording.",
+          "We therefore explore other options, including H5P. During our exploration, we found that using it requires integration with other units, permissions, and several adjustments. As a result, we cannot yet use this authoring tool to its full potential.",
+          "Another option is Gemini, which we are exploring as a practical solution. Our goal is to provide students with an effective, interactive, and sustainable asynchronous learning experience that supports their learning outcomes.",
+          "Before concluding, I would like to invite you to see an example of a course we have developed. In this demonstration, I will show how learning materials, videos, and interactive multimedia are integrated into our LMS. Let's take a look."
+        ]
+      },
+      {
+        num: "08",
+        timeLabel: "11:11",
+        seconds: 671,
+        title: "Course Demonstration",
+        paragraphs: [
+          "I will share one of the courses we have developed, based on the process I explained in the slides. This is an example of a course at Universitas Esa Unggul. In Indonesia, a semester generally runs for 14 to 16 weeks, and each week has topics and learning materials that students need to complete.",
+          "Let me show you one example: a Database course. We have prepared a complete course package that allows students to study independently and asynchronously. The videos, learning activities, assessments, and assignments are all provided. Synchronous learning activities are also included in the LMS.",
+          "At the beginning of the course, we provide the RPS and an introductory video from the lecturer. Before students start the topics, we explain why they are learning the course and why it is relevant to them through an infographic. Further down, we provide an interactive learning experience developed using Gemini Canvas."
+        ]
+      },
+      {
+        num: "09",
+        timeLabel: "13:40",
+        seconds: 820,
+        title: "Interactive Multimedia Demonstration",
+        paragraphs: [
+          "This is an example of interactive multimedia. It includes activities and a briefing to guide students as they begin the course. Before starting the course content, students can independently access an engaging introductory activity.",
+          "The activity presents a short scenario in which students take on the role of a junior data analyst. A lecturer, Mr. Budi, introduces a case involving customer data, a product catalogue, transaction records, and old archives. Students are then asked to answer questions, gradually explore the learning materials, and complete quizzes along the way.",
+          "After completing this interactive introduction, students move on to the individual course sessions. Each session includes its learning outcomes and instructional videos. As Instructional Designers, we also provide a summary of the video, including its main points, notes, transcript, and guidance for further learning. One of our main outputs is microlearning: short videos divided into smaller sections to make the materials easier for students to study."
+        ]
+      },
+      {
+        num: "10",
+        timeLabel: "17:10",
+        seconds: 1030,
+        title: "Developing Interactive Multimedia Using Gemini Canvas",
+        paragraphs: [
+          "When a lecturer is unable to record a video, we can explore another option: developing interactive multimedia using Gemini or Gemini Canvas. Creating an interactive learning experience like this is relatively simple.",
+          "The most important thing is to have the source materials ready. We need the RPS and the learning module. The RPS already contains the learning outcomes and objectives, including CPL and CPMK, which define the expected graduate and course learning outcomes. These elements help ensure that interactive multimedia is based on what students actually need and are expected to achieve.",
+          "We can upload one of the modules or a PowerPoint presentation as the source and instruct the tool to create interactive multimedia that is easy to use, uses natural colors, supports the learning outcomes, and follows instructional and learning-design principles."
+        ]
+      },
+      {
+        num: "11",
+        timeLabel: "20:15",
+        seconds: 1215,
+        title: "Creating and Reviewing Interactive Multimedia",
+        paragraphs: [
+          "After entering the instructions, we click Add, open More Tools, and select Canvas. While it is processing, I would like to show you some materials I have already created in different formats, including games. Here is one example called Algo Guys, where students take on the role of aspiring software engineers and complete each level.",
+          "After waiting around five to eight minutes for the interactive multimedia to be generated, we review it. First, we check whether the content is accurate and appropriate. Then, we review the colors, usability, and whether the interactive elements work correctly, making adjustments based on instructional-design principles."
+        ]
+      },
+      {
+        num: "12",
+        timeLabel: "22:24",
+        seconds: 1344,
+        title: "Publishing and Integrating Interactive Multimedia into Moodle",
+        paragraphs: [
+          "Once we are satisfied with the result, we can deploy it. Google provides Google Sites, which we can use to publish the material. We open Google Sites, adjust the site name, publish the content, copy the published link, and check the result.",
+          "We can then add the link to the course in the LMS. In Moodle, integration is quite simple: we just open the course editing options and add the content as an interactive learning experience."
+        ]
+      },
+      {
+        num: "13",
+        timeLabel: "24:53",
+        seconds: 1493,
+        title: "Creating Learning Videos Using NotebookLM",
+        paragraphs: [
+          "For large-scale production, we can also use NotebookLM to generate videos based on the RPS and learning modules. First, click New Notebook, search for the relevant course, and upload the module prepared by the lecturer.",
+          "In the Studio section, select Video Overview. We usually choose the Explain format rather than Short, set the language to Indonesian because most of our students are Indonesian, and select the papercraft visual style because it is engaging and comfortable to watch.",
+          "Once generated, we preview the video and listen to the audio. In most cases, we download the video first, upload it to YouTube, and then share the YouTube link with students in the LMS."
+        ]
+      },
+      {
+        num: "14",
+        timeLabel: "27:59",
+        seconds: 1679,
+        title: "Closing",
+        paragraphs: [
+          "That is the general process. When a lecturer cannot record a video in the studio with our team or independently, the lecturer can provide the key points, module, and RPS, and we can turn these materials into interactive multimedia or instructional videos.",
+          "Ladies and gentlemen, that concludes the experience and practices I wanted to share about developing digital learning materials at Universitas Esa Unggul. There is one important point I would like to emphasize: our main goal is not simply to produce digital learning materials, but to ensure that students have an effective, interactive, and high-quality learning experience.",
+          "We recognize that every institution has its own challenges and approaches. I hope the experience I have shared today can serve as a useful reference, open up opportunities for collaboration, and inspire the development of digital learning at our respective institutions. Thank you for your attention. Wassalamu'alaikum warahmatullahi wabarakatuh."
+        ]
+      }
+    ];
+
+    /* Ringkasan Penjelasan & Poin Penting (Bilingual ID / EN) */
+    const KEY_POINTS_DATA = {
+      id: {
+        heading: "Ringkasan Eksekutif & Poin Utama Presentasi",
+        speaker: "Disampaikan oleh Tri Panunggal — Instructional Designer, Universitas Esa Unggul",
+        cards: [
+          {
+            badge: "01. Alur 6 Tahap",
+            title: "Pengembangan Terstruktur 14 Topik Semester",
+            text: "Dimulai dari pengumpulan RPS & 14 modul dosen, analisis materi, perancangan desain instruksional, produksi bersama tim Production House, validasi mutu bersama dosen, hingga integrasi ke Moodle LMS."
+          },
+          {
+            badge: "02. Dua Pendekatan",
+            title: "Collaborative & Independent Development",
+            text: "Menyesuaikan kesiapan dosen: keterlibatan penuh dosen dari perencanaan hingga rekaman (Collaborative) atau pengembangan media oleh tim Instructional Design berdasarkan modul & RPS dosen (Independent)."
+          },
+          {
+            badge: "03. Alternatif Media & AI",
+            title: "Gemini Canvas & NotebookLM untuk Pembelajaran Asinkron",
+            text: "Ketika dosen terkendala jadwal rekaman, tim memanfaatkan Gemini Canvas (multimedia interaktif & simulasi kasus via Google Sites) serta NotebookLM Video Overview untuk menjaga kualitas belajar asinkron."
+          },
+          {
+            badge: "04. Fokus Pengalaman Belajar",
+            title: "Berorientasi pada Capaian Pembelajaran (CPL & CPMK)",
+            text: "Setiap media digital dirancang tidak sekadar sebagai produk visual, melainkan selaras dengan CPL/CPMK pada RPS agar mahasiswa memperoleh pengalaman belajar yang efektif dan interaktif."
+          }
+        ]
+      },
+      en: {
+        heading: "Executive Summary & Key Takeaways",
+        speaker: "Presented by Tri Panunggal — Instructional Designer, Universitas Esa Unggul",
+        cards: [
+          {
+            badge: "01. 6-Stage Workflow",
+            title: "Structured 14-Topic Semester Development",
+            text: "Covers collecting RPS & 14 faculty modules, curriculum analysis, instructional design mapping, Production House media creation, lecturer quality validation, and Moodle LMS integration."
+          },
+          {
+            badge: "02. Two Approaches",
+            title: "Collaborative & Independent Development",
+            text: "Adapts to faculty availability: full end-to-end lecturer involvement including studio recording (Collaborative) or ID-led media production based on provided modules and RPS (Independent)."
+          },
+          {
+            badge: "03. AI & Alternative Media",
+            title: "Gemini Canvas & NotebookLM for Asynchronous Learning",
+            text: "When lecturer recording schedules are constrained, the ID team leverages Gemini Canvas (scenario-based interactive multimedia published via Google Sites) and NotebookLM Video Overviews."
+          },
+          {
+            badge: "04. Learner-Centered Design",
+            title: "Aligned with CPL & CPMK Learning Outcomes",
+            text: "Every digital learning asset is purposefully grounded in the RPS learning outcomes (CPL/CPMK) to ensure an engaging, accessible, and effective student learning experience."
+          }
+        ]
+      }
+    };
+
+    /**
+     * Render Logo Universitas Esa Unggul atau Placeholder Institusional
+     */
+    function renderHeaderLogo() {
+      const slot = document.getElementById("header-logo-slot");
+      if (!slot) return;
+
+      const fallbackHtml = `
+        <div class="inline-flex items-center gap-2 px-2.5 py-1.5 rounded-lg bg-ueuNavy text-white border border-ueuNavy shadow-2xs select-none" title="Universitas Esa Unggul">
+          <span class="w-2 h-5 rounded-xs bg-ueuOrange inline-block"></span>
+          <div class="leading-none">
+            <span class="block font-heading font-extrabold text-xs tracking-wider">UEU</span>
+            <span class="block text-[9px] font-semibold tracking-widest text-amber-300 uppercase">DIGITAL</span>
+          </div>
+        </div>
+      `;
+
+      if (MULTIMEDIA_CONFIG.officialLogoPath && MULTIMEDIA_CONFIG.officialLogoPath.trim() !== "") {
+        const img = document.createElement("img");
+        img.src = MULTIMEDIA_CONFIG.officialLogoPath;
+        img.alt = "Logo Universitas Esa Unggul";
+        img.className = "h-10 sm:h-11 w-auto object-contain";
+        img.onerror = () => {
+          slot.innerHTML = fallbackHtml;
+        };
+        slot.innerHTML = "";
+        slot.appendChild(img);
+      } else {
+        slot.innerHTML = fallbackHtml;
+      }
+    }
+
+    /**
+     * Render Kartu Sorotan Interaktif (Slide 01)
+     */
+    function renderHighlightCard(index) {
+      activeHighlightIndex = index;
+      const box = document.getElementById("highlight-content-box");
+      const tabs = document.querySelectorAll(".highlight-tab");
+      const items = INTRO_HIGHLIGHTS[currentLang] || INTRO_HIGHLIGHTS.id;
+      const copy = UI_COPY[currentLang] || UI_COPY.id;
+      const item = items[index] || items[0];
+
+      tabs.forEach((tab, idx) => {
+        const isSelected = idx === index;
+        tab.setAttribute("aria-selected", String(isSelected));
+        if (isSelected) {
+          tab.classList.add("bg-ueuOrange", "text-white");
+          tab.classList.remove("text-slate-200", "hover:bg-white/10");
+        } else {
+          tab.classList.remove("bg-ueuOrange", "text-white");
+          tab.classList.add("text-slate-200", "hover:bg-white/10");
+        }
+      });
+
+      if (!box) return;
+
+      const isLastTopic = index === items.length - 1;
+      const actionBtnHtml = isLastTopic
+        ? `<button type="button" data-go-slide="1" class="inline-flex items-center gap-1 text-xs font-heading font-bold text-ueuOrange hover:text-ueuOrangeHover transition-colors">${copy.highlight_watch_video}</button>`
+        : `<button type="button" data-next-highlight="${index + 1}" class="inline-flex items-center gap-1 text-xs font-heading font-bold text-ueuBlue hover:text-ueuNavy transition-colors">${copy.highlight_next_step}</button>`;
+
+      box.innerHTML = `
+        <div>
+          <span class="inline-block px-2.5 py-0.5 rounded-md bg-ueuLight text-ueuBlue border border-blue-200/70 text-[11px] font-heading font-bold mb-2.5">
+            ${item.stage}
+          </span>
+          <h3 class="font-heading font-extrabold text-base sm:text-lg text-slate-800 mb-2 leading-snug">
+            ${item.title}
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            ${item.body}
+          </p>
+        </div>
+        <div class="pt-3 mt-4 border-t border-slate-100 flex items-center justify-between">
+          <span class="text-[11px] font-medium text-slate-400">${item.counter}</span>
+          ${actionBtnHtml}
+        </div>
+      `;
+
+      const nextHighlightBtn = box.querySelector("[data-next-highlight]");
+      if (nextHighlightBtn) {
+        nextHighlightBtn.addEventListener("click", () => {
+          const nextIdx = Number(nextHighlightBtn.getAttribute("data-next-highlight"));
+          renderHighlightCard(nextIdx);
+        });
+      }
+
+      const goVideoBtn = box.querySelector("[data-go-slide]");
+      if (goVideoBtn) {
+        goVideoBtn.addEventListener("click", () => {
+          goToSlide(Number(goVideoBtn.getAttribute("data-go-slide")));
+        });
+      }
+    }
+
+    /**
+     * Inisialisasi Tab Sorotan Materi di Slide 01
+     */
+    function initIntroHighlights() {
+      const tabs = document.querySelectorAll(".highlight-tab");
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          const idx = Number(tab.getAttribute("data-highlight-idx"));
+          renderHighlightCard(idx);
+        });
+      });
+      renderHighlightCard(0);
+    }
+
+    /**
+     * Lompat ke Waktu Tertentu di Pemutar YouTube
+     */
+    function seekYouTubeVideo(seconds) {
+      const iframe = document.getElementById("yt-iframe");
+      if (!iframe) return;
+
+      try {
+        iframe.contentWindow.postMessage(
+          JSON.stringify({
+            event: "command",
+            func: "seekTo",
+            args: [seconds, true]
+          }),
+          "*"
+        );
+        iframe.contentWindow.postMessage(
+          JSON.stringify({
+            event: "command",
+            func: "playVideo",
+            args: []
+          }),
+          "*"
+        );
+      } catch (err) {
+        iframe.src = `https://www.youtube.com/embed/uiB4CYEGHwE?start=${seconds}&autoplay=1&enablejsapi=1`;
+      }
+    }
+
+    /**
+     * Render Daftar Transkrip Interaktif (14 Bagian Lengkap)
+     */
+    function renderTranscriptList(filterQuery = "") {
+      const container = document.getElementById("transcript-list-container");
+      const countLabel = document.getElementById("transcript-count-label");
+      const copy = UI_COPY[currentLang] || UI_COPY.id;
+      if (!container) return;
+
+      const q = filterQuery.trim().toLowerCase();
+      const filtered = TRANSCRIPT_SECTIONS.filter((sec) => {
+        if (!q) return true;
+        return (
+          sec.title.toLowerCase().includes(q) ||
+          sec.paragraphs.some((p) => p.toLowerCase().includes(q))
+        );
+      });
+
+      if (countLabel) {
+        countLabel.textContent = `${filtered.length} ${copy.transcript_count_unit}`;
+      }
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="p-6 text-center rounded-xl bg-slate-50 border border-slate-200/80 text-xs sm:text-sm text-slate-500">
+            ${copy.transcript_empty}
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered
+        .map(
+          (sec) => `
+          <article class="p-4 rounded-xl bg-slate-50/90 hover:bg-blue-50/40 border border-slate-200/80 transition-colors">
+            <div class="flex items-start justify-between gap-3 mb-2">
+              <div class="flex items-center gap-2.5">
+                <button
+                  type="button"
+                  data-seek-seconds="${sec.seconds}"
+                  class="transcript-seek-btn inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-white border border-slate-200 hover:border-ueuBlue hover:text-ueuBlue font-mono text-xs font-bold text-ueuNavy shadow-2xs transition-colors flex-shrink-0"
+                  title="Jump to ${sec.timeLabel}"
+                >
+                  ▶ ${sec.timeLabel}
+                </button>
+                <h4 class="font-heading font-bold text-xs sm:text-sm text-ueuNavy">
+                  ${sec.num}. ${sec.title}
+                </h4>
+              </div>
+            </div>
+            <div class="space-y-2 text-xs sm:text-sm text-slate-600 leading-relaxed pl-0 sm:pl-1">
+              ${sec.paragraphs.map((p) => `<p>${p}</p>`).join("")}
+            </div>
+          </article>
+        `
+        )
+        .join("");
+
+      container.querySelectorAll(".transcript-seek-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const secs = Number(btn.getAttribute("data-seek-seconds"));
+          seekYouTubeVideo(secs);
+        });
+      });
+    }
+
+    /**
+     * Render Panel Penjelasan & Poin Penting Sesuai Bahasa Aktif
+     */
+    function renderKeyPointsPanel() {
+      const panel = document.getElementById("companion-panel-keypoints");
+      const data = KEY_POINTS_DATA[currentLang] || KEY_POINTS_DATA.id;
+      if (!panel) return;
+
+      panel.innerHTML = `
+        <div class="mb-5">
+          <h3 class="font-heading font-extrabold text-base sm:text-lg text-ueuNavy">
+            ${data.heading}
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1">
+            ${data.speaker}
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          ${data.cards
+            .map(
+              (card) => `
+              <div class="p-4 sm:p-5 rounded-xl bg-ueuLight/70 border border-slate-200/90">
+                <span class="inline-block px-2.5 py-0.5 rounded-md bg-white border border-slate-200 text-[11px] font-heading font-bold text-ueuBlue mb-2">
+                  ${card.badge}
+                </span>
+                <h4 class="font-heading font-bold text-sm sm:text-base text-ueuNavy mb-1.5">
+                  ${card.title}
+                </h4>
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  ${card.text}
+                </p>
+              </div>
+            `
+            )
+            .join("")}
+        </div>
+      `;
+    }
+
+    /**
+     * Inisialisasi Komponen Pendamping Video (Tab Transkrip, Pencarian, Bab Video)
+     */
+    function initVideoCompanion() {
+      const tabBtns = document.querySelectorAll(".companion-tab-btn");
+      const transcriptPanel = document.getElementById("companion-panel-transcript");
+      const keypointsPanel = document.getElementById("companion-panel-keypoints");
+      const searchWrapper = document.getElementById("transcript-search-wrapper");
+      const searchInput = document.getElementById("transcript-search-input");
+
+      tabBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const targetTab = btn.getAttribute("data-companion-tab");
+
+          tabBtns.forEach((b) => {
+            const isActive = b === btn;
+            b.setAttribute("aria-selected", String(isActive));
+            if (isActive) {
+              b.classList.add("bg-white", "text-ueuNavy", "shadow-xs");
+              b.classList.remove("text-slate-600");
+            } else {
+              b.classList.remove("bg-white", "text-ueuNavy", "shadow-xs");
+              b.classList.add("text-slate-600");
+            }
+          });
+
+          if (targetTab === "transcript") {
+            transcriptPanel?.classList.remove("hidden");
+            keypointsPanel?.classList.add("hidden");
+            searchWrapper?.classList.remove("hidden");
+          } else {
+            transcriptPanel?.classList.add("hidden");
+            keypointsPanel?.classList.remove("hidden");
+            searchWrapper?.classList.add("hidden");
+          }
+        });
+      });
+
+      if (searchInput) {
+        searchInput.addEventListener("input", (e) => {
+          renderTranscriptList(e.target.value);
+        });
+      }
+
+      document.querySelectorAll(".video-chapter-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          document.querySelectorAll(".video-chapter-btn").forEach((b) => {
+            b.classList.remove("bg-ueuBlue", "text-white");
+            b.classList.add("bg-white/10", "text-slate-200");
+          });
+          btn.classList.add("bg-ueuBlue", "text-white");
+          btn.classList.remove("bg-white/10", "text-slate-200");
+
+          const secs = Number(btn.getAttribute("data-seek-seconds"));
+          seekYouTubeVideo(secs);
+        });
+      });
+
+      renderTranscriptList("");
+      renderKeyPointsPanel();
+    }
+
+    /**
+     * Render Halaman Editorial Penjabaran Materi (Slide 03)
+     */
+    function renderMaterialShowcase() {
+      const root = document.getElementById("material-editorial-root");
+      if (!root) return;
+
+      const data = MATERIAL_SHOWCASE_DATA[currentLang] || MATERIAL_SHOWCASE_DATA.id;
+      const activeStage = data.stages[activeProcessStageIndex] || data.stages[0];
+      const isEn = currentLang === "en";
+
+      root.innerHTML = `
+        <!-- Bagian A: Gambaran Umum & Peran Instructional Designer -->
+        <div id="mat-sec-role" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 border-b border-slate-200">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-12">
+            <div class="lg:col-span-5">
+              <span class="inline-block text-xs font-heading font-bold uppercase tracking-wider text-ueuBlue mb-2">
+                ${data.aboutEyebrow}
+              </span>
+              <h3 class="font-heading font-extrabold text-2xl sm:text-3xl text-ueuNavy leading-tight">
+                ${data.aboutTitle}
+              </h3>
+            </div>
+            <div class="lg:col-span-7 space-y-4 text-sm sm:text-base text-slate-600 leading-relaxed">
+              ${data.aboutParagraphs.map((p) => `<p>${p}</p>`).join("")}
+            </div>
+          </div>
+
+          <div class="pt-8 border-t border-slate-100">
+            <div class="max-w-2xl mb-8">
+              <span class="inline-block text-xs font-heading font-bold uppercase tracking-wider text-ueuOrange mb-1.5">
+                ${data.roleEyebrow}
+              </span>
+              <h3 class="font-heading font-extrabold text-xl sm:text-2xl text-ueuNavy mb-2">
+                ${data.roleTitle}
+              </h3>
+              <p class="text-sm text-slate-600">${data.roleSubtitle}</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              ${data.roles
+                .map(
+                  (r) => `
+                  <div class="p-5 rounded-xl bg-ueuLight/70 border border-slate-200/90 hover:border-ueuBlue/40 transition-colors">
+                    <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-ueuNavy text-white font-heading font-extrabold text-xs mb-3.5">
+                      ${r.num}
+                    </span>
+                    <h4 class="font-heading font-bold text-base text-ueuNavy mb-2 leading-snug">
+                      ${r.title}
+                    </h4>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                      ${r.desc}
+                    </p>
+                  </div>
+                `
+                )
+                .join("")}
+            </div>
+          </div>
+        </div>
+
+        <!-- Bagian B: Alur Pengembangan 6 Tahap Interaktif -->
+        <div id="mat-sec-flow" class="bg-ueuLight/65 border-b border-slate-200 py-12 sm:py-16">
+          <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-2xl mb-8">
+              <span class="inline-block text-xs font-heading font-bold uppercase tracking-wider text-ueuBlue mb-1.5">
+                ${data.flowEyebrow}
+              </span>
+              <h3 class="font-heading font-extrabold text-2xl sm:text-3xl text-ueuNavy mb-2">
+                ${data.flowTitle}
+              </h3>
+              <p class="text-sm text-slate-600">${data.flowSubtitle}</p>
+            </div>
+
+            <!-- 6 Tombol Tahap -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 mb-6">
+              ${data.stages
+                .map((st, idx) => {
+                  const isActive = idx === activeProcessStageIndex;
+                  return `
+                    <button
+                      type="button"
+                      data-mat-stage="${idx}"
+                      class="mat-stage-btn text-left p-3.5 rounded-xl border transition-all ${
+                        isActive
+                          ? "bg-ueuNavy text-white border-ueuNavy shadow-md"
+                          : "bg-white text-slate-700 border-slate-200 hover:border-ueuBlue/50"
+                      }"
+                    >
+                      <span class="block font-heading font-extrabold text-xs mb-1 ${
+                        isActive ? "text-ueuOrange" : "text-ueuBlue"
+                      }">
+                        ${st.num}
+                      </span>
+                      <span class="block font-heading font-bold text-xs sm:text-sm leading-snug">
+                        ${st.title}
+                      </span>
+                    </button>
+                  `;
+                })
+                .join("")}
+            </div>
+
+            <!-- Panel Detail Tahap Aktif -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-xs">
+              <div class="flex flex-col lg:flex-row lg:items-start justify-between gap-6">
+                <div class="lg:w-7/12">
+                  <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-ueuLight text-ueuBlue font-heading font-bold text-xs mb-3">
+                    <span>${isEn ? "Stage" : "Tahap"} ${activeStage.num}</span>
+                  </div>
+                  <h4 class="font-heading font-extrabold text-xl sm:text-2xl text-ueuNavy mb-2.5">
+                    ${activeStage.title}
+                  </h4>
+                  <p class="text-sm sm:text-base text-slate-600 leading-relaxed mb-5">
+                    ${activeStage.desc}
+                  </p>
+
+                  <h5 class="font-heading font-bold text-xs uppercase tracking-wider text-slate-400 mb-2.5">
+                    ${isEn ? "Key Activities" : "Aktivitas Utama"}
+                  </h5>
+                  <ul class="space-y-2 text-xs sm:text-sm text-slate-700">
+                    ${activeStage.activities
+                      .map(
+                        (act) => `
+                        <li class="flex items-start gap-2.5">
+                          <span class="w-1.5 h-1.5 rounded-full bg-ueuOrange mt-2 flex-shrink-0"></span>
+                          <span>${act}</span>
+                        </li>
+                      `
+                      )
+                      .join("")}
+                  </ul>
+                </div>
+
+                <div class="lg:w-5/12 bg-ueuLight rounded-xl p-5 border border-slate-200/80">
+                  <span class="block text-[11px] font-heading font-bold uppercase tracking-wider text-ueuBlue mb-1.5">
+                    ${isEn ? "Stage Deliverable / Output" : "Luaran Tahapan"}
+                  </span>
+                  <p class="font-heading font-extrabold text-base sm:text-lg text-ueuNavy leading-snug">
+                    ${activeStage.outputs}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bagian C: Dua Pendekatan Pengembangan -->
+        <div id="mat-sec-approach" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 border-b border-slate-200">
+          <div class="max-w-2xl mb-8">
+            <span class="inline-block text-xs font-heading font-bold uppercase tracking-wider text-ueuOrange mb-1.5">
+              ${data.approachEyebrow}
+            </span>
+            <h3 class="font-heading font-extrabold text-2xl sm:text-3xl text-ueuNavy mb-2">
+              ${data.approachTitle}
+            </h3>
+            <p class="text-sm text-slate-600">${data.approachSubtitle}</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            ${data.approaches
+              .map(
+                (ap, i) => `
+                <div class="rounded-2xl border ${
+                  i === 0 ? "border-ueuBlue/30 bg-ueuLight/40" : "border-slate-200 bg-white"
+                } p-6 sm:p-7 shadow-2xs flex flex-col justify-between">
+                  <div>
+                    <span class="inline-block px-3 py-1 rounded-md ${
+                      i === 0 ? "bg-ueuBlue text-white" : "bg-ueuNavy text-white"
+                    } text-xs font-heading font-bold mb-3.5">
+                      ${ap.badge}
+                    </span>
+                    <h4 class="font-heading font-extrabold text-xl text-ueuNavy mb-2.5">
+                      ${ap.title}
+                    </h4>
+                    <p class="text-sm text-slate-600 leading-relaxed mb-5">
+                      ${ap.desc}
+                    </p>
+                  </div>
+                  <ul class="space-y-2 pt-4 border-t border-slate-200/80 text-xs sm:text-sm text-slate-700">
+                    ${ap.points
+                      .map(
+                        (pt) => `
+                        <li class="flex items-start gap-2">
+                          <span class="text-ueuOrange font-bold">&bull;</span>
+                          <span>${pt}</span>
+                        </li>
+                      `
+                      )
+                      .join("")}
+                  </ul>
+                </div>
+              `
+              )
+              .join("")}
+          </div>
+        </div>
+
+        <!-- Bagian D: Teknologi Pendukung & Kualitas Pembelajaran Asinkron -->
+        <div id="mat-sec-tools" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+          <div class="mb-8">
+            <span class="inline-block text-xs font-heading font-bold uppercase tracking-wider text-ueuBlue mb-1.5">
+              ${data.toolsEyebrow}
+            </span>
+            <h3 class="font-heading font-extrabold text-2xl sm:text-3xl text-ueuNavy">
+              ${data.toolsTitle}
+            </h3>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+            ${data.toolGroups
+              .map(
+                (tg) => `
+                <div class="p-5 rounded-xl bg-white border border-slate-200 shadow-2xs">
+                  <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-ueuBlue mb-3">
+                    ${tg.category}
+                  </h4>
+                  <ul class="space-y-2 text-sm font-medium text-slate-700">
+                    ${tg.items
+                      .map(
+                        (item) => `
+                        <li class="flex items-center gap-2">
+                          <span class="w-1.5 h-1.5 rounded-full bg-ueuOrange"></span>
+                          <span>${item}</span>
+                        </li>
+                      `
+                      )
+                      .join("")}
+                  </ul>
+                </div>
+              `
+              )
+              .join("")}
+          </div>
+
+          <!-- Highlight Pembelajaran Asinkron -->
+          <div class="rounded-2xl bg-ueuNavy text-white p-6 sm:p-8">
+            <h4 class="font-heading font-extrabold text-lg sm:text-xl text-amber-300 mb-5">
+              ${data.asyncTitle}
+            </h4>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+              ${data.asyncPoints
+                .map(
+                  (ap) => `
+                  <div class="p-4 rounded-xl bg-white/10 border border-white/15">
+                    <h5 class="font-heading font-bold text-sm sm:text-base text-white mb-1.5">
+                      ${ap.label}
+                    </h5>
+                    <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
+                      ${ap.detail}
+                    </p>
+                  </div>
+                `
+                )
+                .join("")}
+            </div>
+          </div>
+        </div>
+      `;
+
+      root.querySelectorAll(".mat-stage-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          activeProcessStageIndex = Number(btn.getAttribute("data-mat-stage"));
+          renderMaterialShowcase();
+        });
+      });
+    }
+
+    /**
+     * Perbarui Bahasa Antarmuka (ID / EN)
+     */
+    function setLanguage(lang) {
+      if (!UI_COPY[lang]) return;
+      currentLang = lang;
+      document.documentElement.lang = lang;
+
+      const copy = UI_COPY[lang];
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.getAttribute("data-i18n");
+        if (copy[key] !== undefined) {
+          el.innerHTML = copy[key];
+        }
+      });
+
+      const searchInput = document.getElementById("transcript-search-input");
+      if (searchInput) {
+        searchInput.placeholder = copy.search_placeholder;
+        searchInput.setAttribute("aria-label", copy.search_placeholder);
+      }
+
+      document.querySelectorAll(".lang-toggle-btn").forEach((btn) => {
+        const isCurrent = btn.getAttribute("data-set-lang") === lang;
+        btn.setAttribute("aria-pressed", String(isCurrent));
+        if (isCurrent) {
+          btn.classList.add("bg-ueuNavy", "text-white");
+          btn.classList.remove("text-slate-600", "hover:text-ueuNavy");
+        } else {
+          btn.classList.remove("bg-ueuNavy", "text-white");
+          btn.classList.add("text-slate-600", "hover:text-ueuNavy");
+        }
+      });
+
+      renderHighlightCard(activeHighlightIndex);
+      renderTranscriptList(searchInput ? searchInput.value : "");
+      renderKeyPointsPanel();
+      renderMaterialShowcase();
+    }
+
+    /**
+     * Navigasi Antar Slide (0, 1, 2, 3)
+     */
+    function goToSlide(targetIndex) {
+      const clamped = Math.max(0, Math.min(TOTAL_SLIDES - 1, targetIndex));
+      currentSlideIndex = clamped;
+
+      for (let i = 0; i < TOTAL_SLIDES; i++) {
+        const panel = document.getElementById(`slide-${i}`);
+        if (!panel) continue;
+        if (i === clamped) {
+          panel.classList.add("is-active");
+        } else {
+          panel.classList.remove("is-active");
+        }
+      }
+
+      document.querySelectorAll(".slide-nav-pill").forEach((pill) => {
+        const slideNum = Number(pill.getAttribute("data-go-slide"));
+        if (slideNum === clamped) {
+          pill.classList.add("bg-ueuNavy", "text-white", "shadow-2xs");
+          pill.classList.remove("text-slate-600", "hover:text-ueuNavy");
+        } else {
+          pill.classList.remove("bg-ueuNavy", "text-white", "shadow-2xs");
+          pill.classList.add("text-slate-600", "hover:text-ueuNavy");
+        }
+      });
+
+      const progressBar = document.getElementById("top-progress-bar");
+      if (progressBar) {
+        progressBar.style.width = `${((clamped + 1) / TOTAL_SLIDES) * 100}%`;
+      }
+
+      const counterBadge = document.getElementById("slide-counter-badge");
+      if (counterBadge) {
+        counterBadge.textContent = `0${clamped + 1} / 0${TOTAL_SLIDES}`;
+      }
+
+      const prevBtn = document.getElementById("footer-prev-btn");
+      const nextBtn = document.getElementById("footer-next-btn");
+      if (prevBtn) prevBtn.disabled = clamped === 0;
+      if (nextBtn) nextBtn.disabled = clamped === TOTAL_SLIDES - 1;
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    /**
+     * Inisialisasi Kontrol Navigasi, Keyboard, Swipe, Bahasa, dan Fullscreen
+     */
+    function initNavigationControls() {
+      document.querySelectorAll("[data-go-slide]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const target = Number(btn.getAttribute("data-go-slide"));
+          goToSlide(target);
+        });
+      });
+
+      document.querySelectorAll(".lang-toggle-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const lang = btn.getAttribute("data-set-lang");
+          setLanguage(lang);
+        });
+      });
+
+      const prevBtn = document.getElementById("footer-prev-btn");
+      const nextBtn = document.getElementById("footer-next-btn");
+      if (prevBtn) prevBtn.addEventListener("click", () => goToSlide(currentSlideIndex - 1));
+      if (nextBtn) nextBtn.addEventListener("click", () => goToSlide(currentSlideIndex + 1));
+
+      const fsBtn = document.getElementById("btn-fullscreen");
+      if (fsBtn) {
+        fsBtn.addEventListener("click", () => {
+          if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen?.().catch(() => {});
+          } else {
+            document.exitFullscreen?.().catch(() => {});
+          }
+        });
+      }
+
+      document.addEventListener("keydown", (e) => {
+        if (["INPUT", "TEXTAREA"].includes(document.activeElement?.tagName)) return;
+        if (e.key === "ArrowRight") goToSlide(currentSlideIndex + 1);
+        if (e.key === "ArrowLeft") goToSlide(currentSlideIndex - 1);
+      });
+
+      let touchStartX = 0;
+      const stage = document.getElementById("multimedia-stage");
+      if (stage) {
+        stage.addEventListener(
+          "touchstart",
+          (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+          },
+          { passive: true }
+        );
+        stage.addEventListener(
+          "touchend",
+          (e) => {
+            const diffX = e.changedTouches[0].screenX - touchStartX;
+            if (Math.abs(diffX) > 60) {
+              if (diffX < 0) goToSlide(currentSlideIndex + 1);
+              else goToSlide(currentSlideIndex - 1);
+            }
+          },
+          { passive: true }
+        );
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderHeaderLogo();
+      initIntroHighlights();
+      initVideoCompanion();
+      renderMaterialShowcase();
+      initNavigationControls();
+      setLanguage(MULTIMEDIA_CONFIG.defaultLanguage);
+      goToSlide(0);
+    });
+  </script>
+</body>
+</html>
